@@ -1,8 +1,18 @@
 import React from "react";
-import Home from './home'
+import Logo from './assets/logo.png'
+
+import { Container, P, ContainerItens, Image} from "./home/styles";
 
 function App() {
-  return  Home
+  return  <Container>
+
+    <ContainerItens>
+      <Image alt='logo' src={Logo}/>
+      <P>divmain</P>
+
+    </ContainerItens>
+
+    </Container>
 }
 
 export default App;
