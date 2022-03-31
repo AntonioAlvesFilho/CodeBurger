@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from './Containers/home/index'
+import Home from './Containers/home/'
 import Users from './Containers/orders'
 
 const Routes = () => {
     return(
         <Router>
             <Route exact path={'/'} component={Home} />
-            <Route exact path={'/orders'} component={Users} />
+            <Route path={'/orders'} component={Users} />
         </Router>
     )
 }

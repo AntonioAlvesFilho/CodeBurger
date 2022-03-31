@@ -1,9 +1,16 @@
 import React from "react";
 import Logo from '../../assets/logoOrders.png'
 import trash from '../../assets/trash.png'
-const express = require('express')
-const app = express()
-import { Container, ContainerItens, Image, H1, Orders, Button} from "./styles";
+import { useHistory } from "react-router-dom";
+import Container from "../../components/Container";
+import { ContainerItens, Image, H1, Orders, Button} from "./styles";
+
+// const History = useHistory()
+
+const Return = () =>{
+
+  // return History.push('/')
+}
 
 function App() {
   return  <Container>
@@ -14,13 +21,13 @@ function App() {
 
       <ul>
           <Orders>
-            <p>1 Coca-Cola, 1 X-Salada</p>
-            <button><img src={trash}/></button>
+            <h2>1 Coca-Cola, 1 X-Salada</h2>
+            <button><img alt="delete-button" src={trash}/></button>
             <p>Bill Gates</p>
           </Orders>
       </ul>
         
-      <Button>Voltar</Button>
+      <Button goBack={true} onClick={Return}>Voltar</Button>
 
     </ContainerItens>
 

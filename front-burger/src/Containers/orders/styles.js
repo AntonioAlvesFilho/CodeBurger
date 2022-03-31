@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
 
-export const Container = styled.div`
-    background-color: black;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-
-
-`
 export const ContainerItens = styled.div`
 
 background: #0A0A10;
@@ -42,24 +34,23 @@ export const Orders = styled.li`
 
 display: flex;
 flex-direction: column;
-align-items: flex-start;
-
+padding: 16px;
+align-items: start;
+justify-content: center;
+font-size: 90%;
 
 width: 342px;
-height: 101px;
+height: 125px;
 
 background: rgba(255, 255, 255, 0.25);
 border-radius: 14px;
 
-
-
 img {
-    background-color: red;
-    
+    width: 35px;
 }
 
 button {
-    align-self: flex-start;
+    align-self: end;
     border: none;
     background: none;
     cursor: pointer;
@@ -67,11 +58,20 @@ button {
 
     &:hover{
         opacity: 0.6;
+
+        img{
+            background-color: red;
+        }
     }
 
     &:active {
         opacity: 0.8;
     }
+}
+
+p{
+    font-size: 20px;
+    font-style: italic;
 }
 
 `
@@ -81,8 +81,9 @@ export const Button = styled.button`
 width: 342px;
 height: 68px;
 background: rgba(255, 255, 255, 0.14);
-margin: 40px 36px 36px 51px;
+margin: 40px 0px;
 border: none;
+align-items: center;
 
 font-weight: 900;
 font-size: 17px;

@@ -1,14 +1,7 @@
 import styled from "styled-components";
 
 
-export const Container = styled.div`
-    background-color: black;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
 
-
-`
 export const ContainerItens = styled.div`
 
 background: #0A0A10;
@@ -40,6 +33,9 @@ margin-bottom: 76px;
 `
 
 export const InputLabel = styled.p`
+align-self: start;
+margin-left: 45px;
+margin-bottom: 10px;
 
 `
 
