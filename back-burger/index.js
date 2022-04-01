@@ -26,17 +26,19 @@ const checkOrder = (request, response, next) => {
 list.post('/orders', (request, response)=> {
     const {order, price, clientName, status} = request.body
     const {id} = {id:uuid.v4()}
-
-
     const ordered = {id, order, price, clientName, status}
 
-    if (order == "" || price == "" || clientName == "") {
-        return response.status(400).json("Please Complete All Fields")
+    if (order== "" || clientName== "") {
+
+        return response.status(201).json(ordered)
     }
-
+    else{
+    
+        
     orders.push(ordered)
-
-    return response.status(201).json(orders)
+    
+    return response.status(201).json(ordered)
+    }
 })
 
 list.get('/orders', (request, response) => {

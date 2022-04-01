@@ -15,20 +15,24 @@ const Home = () => {
   const inputName= useRef()
   const History = useHistory()
 
+
   async function addNewOrder() {
 
     const { data: newOrder } = await axios.post("http://localhost:3200/orders", {
       order: inputOrder.current.value,
       clientName: inputName.current.value,
     })
-    if (inputName == "") {
-      console.log("a")
+
+
+
+    if (newOrder.order === "" || newOrder.clientName === "") {
+      alert("Please fill all fields")
     }
 
-    console.log(newOrder)
-    setOrders(...orders, newOrder)
-    History.push("/orders")
-
+    else {
+      setOrders([...orders, newOrder])
+      History.push("/orders")
+    }
   }           
 
     return <Container>
@@ -41,7 +45,7 @@ const Home = () => {
         <Input ref={inputOrder} placeholder="Ex: 1 Coca-Cola, 1 X-Salada" />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input ref={inputName} placeholder="Ex: Bill Gates" />
+        <Input  ref={inputName} placeholder="Ex: Bill Gates" />
 
         <Button onClick={addNewOrder}>Fazer Pedido</Button>
 
