@@ -20,7 +20,10 @@ const Home = () => {
     const { data: newOrder } = await axios.post("http://localhost:3200/orders", {
       order: inputOrder.current.value,
       clientName: inputName.current.value,
-    });
+    })
+    if (inputName == "") {
+      console.log("a")
+    }
 
     console.log(newOrder)
     setOrders(...orders, newOrder)

@@ -20,7 +20,7 @@ overflow: auto;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #555; 
 }
  
 /* Handle */
@@ -31,6 +31,10 @@ overflow: auto;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #333; 
 }
 
 `
