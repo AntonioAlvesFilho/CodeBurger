@@ -20,18 +20,6 @@ margin-top: 11px;
 
 `
 
-export const H1 = styled.p`
-
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 33px;
-text-align: center;
-margin-top: 25px;
-margin-bottom: 76px;
-
-`
-
 export const InputLabel = styled.p`
 align-self: start;
 margin-left: 45px;
@@ -55,24 +43,8 @@ color: #FFFFFF;
 margin-bottom: 42px;
 
 ::placeholder {
-    color: #FFFFFF;
+    color: grey;
     font-weight: 300;
 }
 `
 
-export const Button = styled.button`
-
-width: 342px;
-height: 68px;
-background: #D93856;
-margin: 40px 36px 36px 51px;
-
-font-weight: 900;
-font-size: 17px;
-line-height: 2px;
-text-align: center;
-
-:hover {
-    cursor: pointer;
-}
-`

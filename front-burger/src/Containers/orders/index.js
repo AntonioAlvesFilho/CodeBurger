@@ -1,31 +1,58 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+
 import Logo from '../../assets/logoOrders.png'
 import trash from '../../assets/trash.png'
-import { useHistory } from "react-router-dom";
+
 import Container from "../../components/Container";
-import { ContainerItens, Image, H1, Orders, Button} from "./styles";
+import ContainerItens from "../../components/ContainerItens/";
+import H1 from "../../components/Title";
+import { Button } from "../../components/Button/styles";
+import { Image, Orders, Ul} from "./styles";
 
-// const History = useHistory()
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-const Return = () =>{
+const Order = () => {
+  const [orders, setOrders] = useState([])
+  const History = useHistory()
 
-  // return History.push('/')
-}
+  useEffect (() => {
+    async function fetchUsers () {
+      const {data: newOrders} = await axios.get("http://localhost:3200/orders")
+      setOrders(newOrders)
+    }
 
-function App() {
+    fetchUsers()
+  },[])
+
+  async function deleteOrder (orderId) {
+    await axios.delete(`http://localhost:3200/orders/${orderId}`)
+    const deleteOrder = orders.filter((order) => order.id !==  orderId)
+
+    setOrders(deleteOrder)
+  }
+
+  const Return = () =>{
+
+   History.push('/')
+  
+  }
+  
   return  <Container>
 
     <ContainerItens>
       <Image alt='logo' src={Logo}/>
       <H1>Pedidos</H1>
 
-      <ul>
-          <Orders>
-            <h2>1 Coca-Cola, 1 X-Salada</h2>
-            <button><img alt="delete-button" src={trash}/></button>
-            <p>Bill Gates</p>
+      <Ul>
+        {orders.map((order) => (
+          <Orders key={order.id}>
+            <p>{order.order}</p> 
+            <button onClick={() => deleteOrder(order.id)}><img alt="delete-button" src={trash}/></button>
+            <p>{order.clientName}</p>
           </Orders>
-      </ul>
+        ))}
+      </Ul>
         
       <Button goBack={true} onClick={Return}>Voltar</Button>
 
@@ -34,4 +61,4 @@ function App() {
     </Container>
 }
 
-export default App;
+export default Order;

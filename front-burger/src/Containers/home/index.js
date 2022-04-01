@@ -2,27 +2,31 @@ import React, { useState, useRef } from "react";
 import Logo from '../../assets/logoHome.png'
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Container from "../../components/Container/index.js"
-import { ContainerItens, Image, H1, InputLabel, Input, Button } from "./styles";
+import Container from "../../components/Container/"
+import ContainerItens from "../../components/ContainerItens";
+import H1 from "../../components/Title";
+import { Button } from "../../components/Button/styles";
+import { Image, InputLabel, Input} from "./styles";
 
-function App() {
+const Home = () => {
 
-  const [orders, setOrders] = useState([])
-  const inputName = useRef()
+  const [orders, setOrders] = useState([]);
   const inputOrder = useRef()
+  const inputName= useRef()
   const History = useHistory()
 
   async function addNewOrder() {
 
-    const { data: newOrder } = await axios.post("http://localhost:3000/orders", {
+    const { data: newOrder } = await axios.post("http://localhost:3200/orders", {
       order: inputOrder.current.value,
-      name: inputName.current.value,
-    })
+      clientName: inputName.current.value,
+    });
 
     console.log(newOrder)
     setOrders(...orders, newOrder)
-    History.push('/orders')
-  }
+    History.push("/orders")
+
+  }           
 
     return <Container>
 
@@ -31,16 +35,15 @@ function App() {
         <H1>Faça seu pedido!</H1>
 
         <InputLabel>Pedido</InputLabel>
-        <Input placeholder="1 Coca-Cola, 1 X-Salada" />
+        <Input ref={inputOrder} placeholder="Ex: 1 Coca-Cola, 1 X-Salada" />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input placeholder="Bill Gates" />
+        <Input ref={inputName} placeholder="Ex: Bill Gates" />
 
         <Button onClick={addNewOrder}>Fazer Pedido</Button>
 
       </ContainerItens>
-
     </Container>
   }
 
-  export default App
+  export default Home

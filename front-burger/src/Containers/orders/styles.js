@@ -1,16 +1,7 @@
 import styled from "styled-components";
 
 
-export const ContainerItens = styled.div`
 
-background: #0A0A10;
-
-
-display: flex;
-width: 414px;
-height: 896px;
-flex-direction: column;
-`
  
 export const Image = styled.img`
 width: 246px;
@@ -18,20 +9,34 @@ height: 354px;
 margin-top: 11px;
 
 `
+export const Ul = styled.ul`
+height: 300px;
+padding-right: 10px;
+overflow: auto;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-export const H1 = styled.p`
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
 
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 33px;
-text-align: center;
-margin-top: 36px;
-margin-bottom: 76px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 `
-export const Orders = styled.li`
 
+export const Orders = styled.li`
+margin-bottom: 25px;
 display: flex;
 flex-direction: column;
 padding: 16px;
@@ -39,7 +44,8 @@ align-items: start;
 justify-content: center;
 font-size: 90%;
 
-width: 342px;
+
+width: 320px;
 height: 125px;
 
 background: rgba(255, 255, 255, 0.25);
@@ -74,23 +80,4 @@ p{
     font-style: italic;
 }
 
-`
-
-export const Button = styled.button`
-
-width: 342px;
-height: 68px;
-background: rgba(255, 255, 255, 0.14);
-margin: 40px 0px;
-border: none;
-align-items: center;
-
-font-weight: 900;
-font-size: 17px;
-line-height: 2px;
-text-align: center;
-
-:hover {
-    cursor: pointer;
-}
 `
