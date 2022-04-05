@@ -1,6 +1,6 @@
 {
   "homepage": "https://AntonioAlvesFilho.github.io/CodeBurger",
-  "name": "CodeBurger",
+  "name": "front-burger",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
